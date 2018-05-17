@@ -2,7 +2,7 @@
 <html>
     <head lang="en">
         <meta charset="utf-8" />
-        <title>BIP39 - Mnemonic Code</title>
+        <title>LoafWallet Tools</title>
         <link rel="stylesheet" href="css/bootstrap-3.3.7.css">
         <link rel="stylesheet" href="css/app.css">
         <meta content="Mnemonic code for generating deterministic keys" name="description"/>
@@ -22,7 +22,7 @@
                     <form class="form-horizontal" role="form">
 
                         <div class="form-group">
-                            <label for="phrase" class="col-sm-2 control-label">BIP39 Mnemonic</label>
+                            <label for="phrase" class="col-sm-2 control-label">Enter Paper Key</label>
                             <div class="col-sm-10">
                                 <textarea id="phrase" class="phrase form-control" data-show-qr></textarea>
                             </div>
@@ -47,7 +47,7 @@
                                 <textarea id="root-key" class="root-key form-control" data-show-qr readonly></textarea>
                             </div>
                         </div>
-                        <div class="form-group litecoin-ltub-container hidden">
+                        <div class="form-group litecoin-ltub-container">
                             <label for="litecoin-use-ltub" class="col-sm-2 control-label">Prefixes</label>
                             <div class="col-sm-10 checkbox">
                                 <label>
@@ -473,7 +473,7 @@
                     <h2>Offline Usage</h2>
 
                     <p>
-                    You can use this tool without having to be online.
+                    You can use this tool without having to be online. However balance's will not be displayed.
                     </p>
                     <p>
                     In your browser, select file save-as, and save this page
@@ -486,7 +486,7 @@
                     <p>
                     <span>Alternatively, download the file from the repository</span>
                     -
-                    <a href="https://github.com/iancoleman/bip39">https://github.com/iancoleman/bip39</a>
+                    <a href="https://github.com/litecoin-foundation/loafwallet-recovery">https://github.com/litecoin-foundation/loafwallet-recovery</a>
                     </p>
 
                 </div>
@@ -502,9 +502,11 @@
                     <p>
                         <span>Get the source code from the repository</span>
                         -
-                        <a href="https://github.com/iancoleman/bip39" target="_blank">
-                            https://github.com/iancoleman/bip39
+                        <a href="https://github.com/litecoin-foundation/loafwallet-recovery" target="_blank">
+                            https://github.com/litecoin-foundation/loafwallet-recovery.
                         </a>
+
+                        <span>Based on code from iancoleman's <a href="https://github.com/iancoleman/bip39">bip39 repo</a>.</span>
                     </p>
 
                     <h3>Libraries</h3>
