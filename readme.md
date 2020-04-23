@@ -64,4 +64,4 @@ $ jasmine spec/tests.js
 # License
 
 This SliceWallet Recovery tool is released under the terms of the MIT license. See LICENSE for
-more information or see https://opensource.org/licenses/MIT. This repo is a fork of https://github.com/iancoleman/bip39.
+more information or see https://opensource.org/licenses/MIT. This repo is a fork of https://github.com/litecoin-foundation/loafwallet-recovery.
