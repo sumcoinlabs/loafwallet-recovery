@@ -59,7 +59,7 @@ bitcoinjs.bitcoin.networks.testnet.p2wpkhInP2sh = {
 bitcoinjs.bitcoin.networks.sumcoin.p2wpkhInP2sh = {
     baseNetwork: "sumcoin",
     messagePrefix: '\x19Litecoin Signed Message:\n',
-    bech32: 'ltc',
+    bech32: 'sum',
     bip32: {
         public: 0x01b26ef6,
         private: 0x01b26792

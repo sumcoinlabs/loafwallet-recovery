@@ -849,14 +849,14 @@
                     }
                 }
                 // query Insight Lite for balance
-                // convert from sats to whole ltc + append LTC
+                // convert from sats to whole sum + append SUM
                 var baseURL = "https://insight.litecore.io/api/addr/" + address + "/balance";
                 var balance;
                 $.ajax({
                     url: baseURL,
                     success: function(data) {
                         data = data / 100000000
-                        balance = data.toString() + " LTC";
+                        balance = data.toString() + " SUM";
                     },
                     async: false,
                 });
@@ -1517,7 +1517,7 @@
 
     var networks = [
         {
-            name: "LTC - Sumcoin",
+            name: "SUM - Sumcoin",
             segwitAvailable: true,
             onSelect: function() {
                 network = bitcoinjs.bitcoin.networks.sumcoin;

@@ -403,7 +403,7 @@ it('Allows selection of bitcoin testnet', function(done) {
 });
 it('Allows selection of sumcoin', function(done) {
     var params = {
-        selectText: "LTC - Sumcoin",
+        selectText: "SUM - Sumcoin",
         firstAddress: "LQ4XU8RX2ULPmPq9FcUHdVmPVchP9nwXdn",
     };
     testNetwork(done, params);
@@ -1799,7 +1799,7 @@ it('Uses the correct derivation path when changing tabs', function(done) {
             .click();
         driver.sleep(generateDelay).then(function() {
             // 4) switch from bitcoin to sumcoin
-            selectNetwork("LTC - Sumcoin");
+            selectNetwork("SUM - Sumcoin");
             driver.sleep(generateDelay).then(function() {
                 // 5) Check address is displayed correctly
                 getFirstAddress(function(address) {
@@ -3099,7 +3099,7 @@ it('Shows error for hardened addresses with xpub root key', function(done) {
 it('Uses ltub by default for sumcoin, but can be set to xprv', function(done) {
     driver.findElement(By.css('.phrase'))
         .sendKeys("abandon abandon ability");
-    selectNetwork("LTC - Sumcoin");
+    selectNetwork("SUM - Sumcoin");
     driver.sleep(generateDelay).then(function() {
         // check the extended key is generated correctly
         driver.findElement(By.css('.root-key'))
