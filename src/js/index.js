@@ -1517,7 +1517,7 @@
 
     var networks = [
         {
-            name: "LTC - Litecoin",
+            name: "LTC - Sumcoin",
             segwitAvailable: true,
             onSelect: function() {
                 network = bitcoinjs.bitcoin.networks.sumcoin;
