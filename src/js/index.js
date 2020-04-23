@@ -6,7 +6,7 @@
     var seed = null;
     var bip32RootKey = null;
     var bip32ExtendedKey = null;
-    var network = bitcoinjs.bitcoin.networks.litecoin;
+    var network = bitcoinjs.bitcoin.networks.sumcoin;
     var addressRowTemplate = $("#address-row-template");
 
     var showIndex = true;
@@ -48,8 +48,8 @@
     DOM.generate = $(".generate");
     DOM.seed = $(".seed");
     DOM.rootKey = $(".root-key");
-    DOM.litecoinLtubContainer = $(".litecoin-ltub-container");
-    DOM.litecoinUseLtub = $(".litecoin-use-ltub");
+    DOM.litecoinLtubContainer = $(".sumcoin-ltub-container");
+    DOM.litecoinUseLtub = $(".sumcoin-use-ltub");
     DOM.extendedPrivKey = $(".extended-priv-key");
     DOM.extendedPubKey = $(".extended-pub-key");
     DOM.bip32tab = $("#bip32-tab");
@@ -353,7 +353,7 @@
     function litecoinUseLtubChanged() {
         litecoinUseLtub = DOM.litecoinUseLtub.prop("checked");
         if (litecoinUseLtub) {
-            network = bitcoinjs.bitcoin.networks.litecoin;
+            network = bitcoinjs.bitcoin.networks.sumcoin;
         }
         else {
             network = bitcoinjs.bitcoin.networks.litecoinXprv;
@@ -1520,7 +1520,7 @@
             name: "LTC - Litecoin",
             segwitAvailable: true,
             onSelect: function() {
-                network = bitcoinjs.bitcoin.networks.litecoin;
+                network = bitcoinjs.bitcoin.networks.sumcoin;
                 setHdCoin(2);
                 DOM.litecoinLtubContainer.removeClass("hidden");
             },
@@ -1529,14 +1529,14 @@
 
     var clients = [
         {
-            name: "LoafWallet",
+            name: "SliceWallet",
             onSelect: function() {
                 DOM.bip32path.val("m/0'/0");
                 DOM.hardenedAddresses.prop('checked', false);
             }
         },
         {
-            name: "LoafWallet (change)",
+            name: "SliceWallet (change)",
             onSelect: function() {
                 DOM.bip32path.val("m/0'/1");
                 DOM.hardenedAddresses.prop('checked', false);

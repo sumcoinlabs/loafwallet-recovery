@@ -401,7 +401,7 @@ it('Allows selection of bitcoin testnet', function(done) {
     };
     testNetwork(done, params);
 });
-it('Allows selection of litecoin', function(done) {
+it('Allows selection of sumcoin', function(done) {
     var params = {
         selectText: "LTC - Litecoin",
         firstAddress: "LQ4XU8RX2ULPmPq9FcUHdVmPVchP9nwXdn",
@@ -1798,7 +1798,7 @@ it('Uses the correct derivation path when changing tabs', function(done) {
         driver.findElement(By.css('#bip32-tab a'))
             .click();
         driver.sleep(generateDelay).then(function() {
-            // 4) switch from bitcoin to litecoin
+            // 4) switch from bitcoin to sumcoin
             selectNetwork("LTC - Litecoin");
             driver.sleep(generateDelay).then(function() {
                 // 5) Check address is displayed correctly
@@ -3096,7 +3096,7 @@ it('Shows error for hardened addresses with xpub root key', function(done) {
 // github issue 96
 // https://github.com/iancoleman/bip39/issues/96
 // Issue with extended keys on Litecoin
-it('Uses ltub by default for litecoin, but can be set to xprv', function(done) {
+it('Uses ltub by default for sumcoin, but can be set to xprv', function(done) {
     driver.findElement(By.css('.phrase'))
         .sendKeys("abandon abandon ability");
     selectNetwork("LTC - Litecoin");
@@ -3106,10 +3106,10 @@ it('Uses ltub by default for litecoin, but can be set to xprv', function(done) {
             .getAttribute("value")
             .then(function(rootKey) {
                 expect(rootKey).toBe("Ltpv71G8qDifUiNesiPqf6h5V6eQ8ic77oxQiYtawiACjBEx3sTXNR2HGDGnHETYxESjqkMLFBkKhWVq67ey1B2MKQXannUqNy1RZVHbmrEjnEU");
-                // set litecoin to use ltub
+                // set sumcoin to use ltub
                 driver.executeScript(function() {
-                    $(".litecoin-use-ltub").prop("checked", false);
-                    $(".litecoin-use-ltub").trigger("change");
+                    $(".sumcoin-use-ltub").prop("checked", false);
+                    $(".sumcoin-use-ltub").trigger("change");
                 });
                 driver.sleep(generateDelay).then(function() {
                     driver.findElement(By.css('.root-key'))

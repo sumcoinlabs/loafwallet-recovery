@@ -4,7 +4,7 @@ A tool for converting BIP39 mnemonic phrases to addresses and private keys.
 
 ## Online Version
 
-https://recovery.loafwallet.org
+https://recovery.slicewallet.org
 
 ## Standalone offline version
 
@@ -63,5 +63,5 @@ $ jasmine spec/tests.js
 
 # License
 
-This LoafWallet Recovery tool is released under the terms of the MIT license. See LICENSE for
+This SliceWallet Recovery tool is released under the terms of the MIT license. See LICENSE for
 more information or see https://opensource.org/licenses/MIT. This repo is a fork of https://github.com/iancoleman/bip39.

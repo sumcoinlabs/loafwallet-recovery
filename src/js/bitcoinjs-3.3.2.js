@@ -9772,7 +9772,7 @@ module.exports = {
     scriptHash: 0xc4,
     wif: 0xef
   },
-  litecoin: {
+  sumcoin: {
     messagePrefix: '\x19Litecoin Signed Message:\n',
     bip32: {
       public: 0x019da462,

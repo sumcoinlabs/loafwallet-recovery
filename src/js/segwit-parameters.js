@@ -56,8 +56,8 @@ bitcoinjs.bitcoin.networks.testnet.p2wpkhInP2sh = {
     wif: 0xef
 };
 
-bitcoinjs.bitcoin.networks.litecoin.p2wpkhInP2sh = {
-    baseNetwork: "litecoin",
+bitcoinjs.bitcoin.networks.sumcoin.p2wpkhInP2sh = {
+    baseNetwork: "sumcoin",
     messagePrefix: '\x19Litecoin Signed Message:\n',
     bech32: 'ltc',
     bip32: {

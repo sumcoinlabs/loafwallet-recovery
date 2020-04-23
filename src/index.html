@@ -2,7 +2,7 @@
 <html>
     <head lang="en">
         <meta charset="utf-8" />
-        <title>LoafWallet Tools</title>
+        <title>SliceWallet Tools</title>
         <link rel="stylesheet" href="css/bootstrap-3.3.7.css">
         <link rel="stylesheet" href="css/app.css">
         <meta content="Mnemonic code for generating deterministic keys" name="description"/>
@@ -14,7 +14,7 @@
     <body>
         <div class="container">
 
-            <h1 class="text-center">LoafWallet Recovery</h1>
+            <h1 class="text-center">SliceWallet Recovery</h1>
             <p class="version">v0.1.0</p>
             <hr>
             <div class="row">
@@ -47,11 +47,11 @@
                                 <textarea id="root-key" class="root-key form-control" data-show-qr readonly></textarea>
                             </div>
                         </div>
-                        <div class="form-group litecoin-ltub-container">
-                            <label for="litecoin-use-ltub" class="col-sm-2 control-label">Prefixes</label>
+                        <div class="form-group sumcoin-ltub-container">
+                            <label for="sumcoin-use-ltub" class="col-sm-2 control-label">Prefixes</label>
                             <div class="col-sm-10 checkbox">
                                 <label>
-                                    <input type="checkbox" id="litecoin-use-ltub" class="litecoin-use-ltub" checked="checked">
+                                    <input type="checkbox" id="sumcoin-use-ltub" class="sumcoin-use-ltub" checked="checked">
                                     Use <code>Ltpv / Ltub</code> instead of <code>xprv / xpub</code>
                                 </label>
                             </div>
@@ -69,7 +69,7 @@
                         <li id="bip32-tab" class="active">
                             <a href="#bip32" role="tab" data-toggle="tab">BIP32</a>
                         </li>
-                      <!-- LOSHAN: code below is commented out as loaf currently doesn't support anything other than bip32 -->
+                      <!-- LOSHAN: code below is commented out as slice currently doesn't support anything other than bip32 -->
                         <!-- <li id="bip44-tab">
                             <a href="#bip44" role="tab" data-toggle="tab">BIP44</a>
                         </li>
@@ -104,7 +104,7 @@
                               </div>
                           </form>
                       </div>
-                      <!-- LOSHAN: code below is commented out as loaf currently doesn't support anything other than bip32 -->
+                      <!-- LOSHAN: code below is commented out as slice currently doesn't support anything other than bip32 -->
                         <!-- <div id="bip44" class="tab-pane">
                             <form class="form-horizontal" role="form">
                                 <br>
@@ -486,7 +486,7 @@
                     <p>
                     <span>Alternatively, download the file from the repository</span>
                     -
-                    <a href="https://github.com/litecoin-foundation/loafwallet-recovery">https://github.com/litecoin-foundation/loafwallet-recovery</a>
+                    <a href="https://github.com/sumcoinlabs/slicewallet-recovery">https://github.com/sumcoinlabs/slicewallet-recovery</a>
                     </p>
 
                 </div>
@@ -502,8 +502,8 @@
                     <p>
                         <span>Get the source code from the repository</span>
                         -
-                        <a href="https://github.com/litecoin-foundation/loafwallet-recovery" target="_blank">
-                            https://github.com/litecoin-foundation/loafwallet-recovery.
+                        <a href="https://github.com/sumcoinlabs/slicewallet-recovery" target="_blank">
+                            https://github.com/sumcoinlabs/slicewallet-recovery.
                         </a>
 
                         <span>Based on code from iancoleman's <a href="https://github.com/iancoleman/bip39">bip39 repo</a>.</span>
