@@ -1,5 +1,7 @@
 # BIP39 Tool
 
+## This program is forked from Loaf-recovery which was forked from https://github.com/iancoleman/bip39
+
 A tool for converting BIP39 mnemonic phrases to addresses and private keys.
 
 ## Online Version
@@ -43,21 +45,21 @@ please do not commit changes to `bip39-standalone.html`
 Tests depend on
 
 * nodejs
-* selenium webdriver - cd /path/to/bip39/tests; npm install
+* selenium webdriver - cd /path/to/slicewallet-recovery/tests; npm install
 * selenium driver for firefox ([geckodriver](https://github.com/mozilla/geckodriver/releases)) and / or chrome ([chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads))
 * jasmine - npm install --global jasmine
 
 Before running tests, the site must be served at http://localhost:8000.
 
 ```
-$ cd /path/to/bip39/src
+$ cd /path/to/slicewallet-recovery/src
 $ python -m http.server
 ```
 
 Run tests from the command-line
 
 ```
-$ cd /path/to/bip39/tests
+$ cd /path/to/slicewallet-recovery/tests
 $ jasmine spec/tests.js
 ```
 
