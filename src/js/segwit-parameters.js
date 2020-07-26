@@ -61,12 +61,12 @@ bitcoinjs.bitcoin.networks.sumcoin.p2wpkhInP2sh = {
     messagePrefix: '\x19Sumcoin Signed Message:\n',
     bech32: 'sum',
     bip32: {
-        public: 0x01b26ef6,
-        private: 0x01b26792
+        public: 0x0488b41c,
+        private: 0x0488abe6
     },
-    pubKeyHash: 0x30,
-    scriptHash: 0x32,
-    wif: 0xb0
+    pubKeyHash: 0x3F,
+    scriptHash: 0xC8,
+    wif: 0xbf
 };
 
 bitcoinjs.bitcoin.networks.fujicoin.p2wpkh = {
