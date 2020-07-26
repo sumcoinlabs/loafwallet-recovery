@@ -8596,13 +8596,13 @@ module.exports={
   "OP_CHECKMULTISIGVERIFY": 175,
 
   "OP_NOP1": 176,
-  
+
   "OP_NOP2": 177,
   "OP_CHECKLOCKTIMEVERIFY": 177,
 
   "OP_NOP3": 178,
   "OP_CHECKSEQUENCEVERIFY": 178,
-  
+
   "OP_NOP4": 179,
   "OP_NOP5": 180,
   "OP_NOP6": 181,
@@ -9773,14 +9773,14 @@ module.exports = {
     wif: 0xef
   },
   sumcoin: {
-    messagePrefix: '\x19Litecoin Signed Message:\n',
+    messagePrefix: '\x19Sumcoin Signed Message:\n',
     bip32: {
-      public: 0x019da462,
-      private: 0x019d9cfe
+      public: 0x0488b41c,
+      private: 0x0488abe6
     },
-    pubKeyHash: 0x30,
-    scriptHash: 0x32,
-    wif: 0xb0
+    pubKeyHash: 0x3F,
+    scriptHash: 0xC8,
+    wif: 0xbf
   }
 }
 

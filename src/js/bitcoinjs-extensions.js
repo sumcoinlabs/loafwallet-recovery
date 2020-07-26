@@ -318,8 +318,8 @@ bitcoinjs.bitcoin.networks.monacoin = {
     wif: 0xb0
 };
 
-bitcoinjs.bitcoin.networks.litecoinXprv = {
-    messagePrefix: '\x19Litecoin Signed Message:\n',
+bitcoinjs.bitcoin.networks.sumcoinXprv = {
+    messagePrefix: '\x19Sumcoin Signed Message:\n',
     bip32: {
       public: 0x0488b41c,
       private: 0x0488abe6,

@@ -14,7 +14,7 @@
     var showBalance = true;
     var showPrivKey = true;
     var showQr = false;
-    var litecoinUseLtub = true;
+    var sumcoinUseLtub = false;
 
     var entropyChangeTimeoutEvent = null;
     var phraseChangeTimeoutEvent = null;
@@ -48,8 +48,8 @@
     DOM.generate = $(".generate");
     DOM.seed = $(".seed");
     DOM.rootKey = $(".root-key");
-    DOM.litecoinLtubContainer = $(".sumcoin-ltub-container");
-    DOM.litecoinUseLtub = $(".sumcoin-use-ltub");
+    DOM.sumcoinLtubContainer = $(".sumcoin-ltub-container");
+    DOM.sumcoinUseLtub = $(".sumcoin-use-ltub");
     DOM.extendedPrivKey = $(".extended-priv-key");
     DOM.extendedPubKey = $(".extended-pub-key");
     DOM.bip32tab = $("#bip32-tab");
@@ -127,7 +127,7 @@
         DOM.generate.on("click", generateClicked);
         DOM.more.on("click", showMore);
         DOM.rootKey.on("input", delayedRootKeyChanged);
-        DOM.litecoinUseLtub.on("change", litecoinUseLtubChanged);
+        DOM.sumcoinUseLtub.on("change", sumcoinUseLtubChanged);
         DOM.bip32path.on("input", calcForDerivationPath);
         DOM.bip44account.on("input", calcForDerivationPath);
         DOM.bip44change.on("input", calcForDerivationPath);
@@ -171,7 +171,7 @@
     function networkChanged(e) {
         clearDerivedKeys();
         clearAddressesList();
-        DOM.litecoinLtubContainer.addClass("hidden");
+        DOM.sumcoinLtubContainer.addClass("hidden");
         DOM.bitcoinCashAddressTypeContainer.addClass("hidden");
         var networkIndex = e.target.value;
         var network = networks[networkIndex];
@@ -350,13 +350,13 @@
         calcForDerivationPath();
     }
 
-    function litecoinUseLtubChanged() {
-        litecoinUseLtub = DOM.litecoinUseLtub.prop("checked");
-        if (litecoinUseLtub) {
+    function sumcoinUseLtubChanged() {
+        sumcoinUseLtub = DOM.sumcoinUseLtub.prop("checked");
+        if (sumcoinUseLtub) {
             network = bitcoinjs.bitcoin.networks.sumcoin;
         }
         else {
-            network = bitcoinjs.bitcoin.networks.litecoinXprv;
+            network = bitcoinjs.bitcoin.networks.sumcoinXprv;
         }
         phraseChanged();
     }
@@ -848,7 +848,7 @@
                         address = bitcoinjs.bitcoin.address.fromOutputScript(scriptpubkey, network)
                     }
                 }
-                // query Insight Lite for balance
+                // query Insight SUM Explorer for balance - TODO make insight
                 // convert from sats to whole sum + append SUM
                 var baseURL = "https://insight.litecore.io/api/addr/" + address + "/balance";
                 var balance;
@@ -1522,7 +1522,7 @@
             onSelect: function() {
                 network = bitcoinjs.bitcoin.networks.sumcoin;
                 setHdCoin(2);
-                DOM.litecoinLtubContainer.removeClass("hidden");
+                DOM.sumcoinLtubContainer.removeClass("hidden");
             },
         },
     ]

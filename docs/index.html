@@ -35128,13 +35128,13 @@ module.exports={
   "OP_CHECKMULTISIGVERIFY": 175,
 
   "OP_NOP1": 176,
-  
+
   "OP_NOP2": 177,
   "OP_CHECKLOCKTIMEVERIFY": 177,
 
   "OP_NOP3": 178,
   "OP_CHECKSEQUENCEVERIFY": 178,
-  
+
   "OP_NOP4": 179,
   "OP_NOP5": 180,
   "OP_NOP6": 181,
@@ -36305,7 +36305,7 @@ module.exports = {
     wif: 0xef
   },
   sumcoin: {
-    messagePrefix: '\x19Litecoin Signed Message:\n',
+    messagePrefix: '\x19Sumcoin Signed Message:\n',
     bip32: {
       public: 0x019da462,
       private: 0x019d9cfe
@@ -42018,15 +42018,15 @@ bitcoinjs.bitcoin.networks.monacoin = {
     wif: 0xb0
 };
 
-bitcoinjs.bitcoin.networks.litecoinXprv = {
-    messagePrefix: '\x19Litecoin Signed Message:\n',
+bitcoinjs.bitcoin.networks.sumcoinXprv = {
+    messagePrefix: '\x19Sumcoin Signed Message:\n',
     bip32: {
-      public: 0x0488b21e,
-      private: 0x0488ade4,
+      public: 0x0488b41c,
+      private: 0x0488abe6,
     },
-    pubKeyHash: 0x30,
-    scriptHash: 0x32,
-    wif: 0xb0
+    pubKeyHash: 0x3F,
+    scriptHash: 0x38,
+    wif: 0xbf
 };
 
 bitcoinjs.bitcoin.networks.komodo = {
@@ -42515,7 +42515,7 @@ bitcoinjs.bitcoin.networks.linx = {
 };
 
 bitcoinjs.bitcoin.networks.litecoincash = {
-  messagePrefix: '\x18Litecoin Signed Message:\n',
+  messagePrefix: '\x18Sumcoin Signed Message:\n',
   bip32: {
     public: 0x0488B21E,
     private: 0x0488ADE4,
@@ -61090,7 +61090,7 @@ module.exports = function privateDecrypt(private_key, enc, reverse) {
   } else {
     padding = 4;
   }
-  
+
   var key = parseKeys(private_key);
   var k = key.modulus.byteLength();
   if (enc.length > k || new bn(enc).cmp(key.modulus) >= 0) {
@@ -65657,13 +65657,13 @@ Script.prototype.runInContext = function (context) {
     if (!(context instanceof Context)) {
         throw new TypeError("needs a 'context' argument.");
     }
-    
+
     var iframe = document.createElement('iframe');
     if (!iframe.style) iframe.style = {};
     iframe.style.display = 'none';
-    
+
     document.body.appendChild(iframe);
-    
+
     var win = iframe.contentWindow;
     var wEval = win.eval, wExecScript = win.execScript;
 
@@ -65672,7 +65672,7 @@ Script.prototype.runInContext = function (context) {
         wExecScript.call(win, 'null');
         wEval = win.eval;
     }
-    
+
     forEach(Object_keys(context), function (key) {
         win[key] = context[key];
     });
@@ -65681,11 +65681,11 @@ Script.prototype.runInContext = function (context) {
             win[key] = context[key];
         }
     });
-    
+
     var winKeys = Object_keys(win);
 
     var res = wEval.call(win, this.code);
-    
+
     forEach(Object_keys(win), function (key) {
         // Avoid copying circular objects like `top` and `window` by only
         // updating existing context properties or new properties in the `win`
@@ -65700,9 +65700,9 @@ Script.prototype.runInContext = function (context) {
             defineProp(context, key, win[key]);
         }
     });
-    
+
     document.body.removeChild(iframe);
-    
+
     return res;
 };
 
@@ -70942,15 +70942,15 @@ bitcoinjs.bitcoin.networks.testnet.p2wpkhInP2sh = {
 
 bitcoinjs.bitcoin.networks.sumcoin.p2wpkhInP2sh = {
     baseNetwork: "sumcoin",
-    messagePrefix: '\x19Litecoin Signed Message:\n',
+    messagePrefix: '\x19Sumcoin Signed Message:\n',
     bech32: 'sum',
     bip32: {
-        public: 0x01b26ef6,
-        private: 0x01b26792
+        public: 0x0488b41c,
+        private: 0x0488abe6
     },
-    pubKeyHash: 0x30,
-    scriptHash: 0x32,
-    wif: 0xb0
+    pubKeyHash: 0x3F,
+    scriptHash: 0x38,
+    wif: 0xbf
 };
 
 bitcoinjs.bitcoin.networks.fujicoin.p2wpkh = {
@@ -89776,8 +89776,8 @@ module.exports = function stripHexPrefix(str) {
 
 function convertRipplePriv(priv)   {
         return window.basex('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz').decode(priv).toString("hex").slice(2,66)
-}   
-      
+}
+
 </script>
         <script>(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.bchaddr = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 // base-x encoding
@@ -93137,7 +93137,7 @@ var validate = validation.validate;
 
 /**
  * Encodes a hash from a given type into a Bitcoin Cash address with the given prefix.
- * 
+ *
  * @static
  * @param {string} prefix Network prefix. E.g.: 'bitcoincash'.
  * @param {string} type Type of address to generate. Either 'P2PKH' or 'P2SH'.
@@ -93159,7 +93159,7 @@ function encode(prefix, type, hash) {
 
 /**
  * Decodes the given address into its constituting prefix, type and hash. See [#encode()]{@link encode}.
- * 
+ *
  * @static
  * @param {string} address Address to decode. E.g.: 'bitcoincash:qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a'.
  * @returns {object}
@@ -93204,7 +93204,7 @@ var VALID_PREFIXES = ['bitcoincash', 'bchtest', 'bchreg'];
  * and is one of 'bitcoincash', 'bchtest', or 'bchreg'.
  *
  * @private
- * @param {string} prefix 
+ * @param {string} prefix
  * @returns {boolean}
  */
 function isValidPrefix(prefix) {
@@ -93216,7 +93216,7 @@ function isValidPrefix(prefix) {
  * of the address' checksum.
  *
  * @private
- * @param {string} prefix Network prefix. E.g.: 'bitcoincash'. 
+ * @param {string} prefix Network prefix. E.g.: 'bitcoincash'.
  * @returns {Uint8Array}
  */
 function prefixToUint5Array(prefix) {
@@ -93375,8 +93375,8 @@ function fromUint5Array(data) {
  * Returns the concatenation a and b.
  *
  * @private
- * @param {Uint8Array} a 
- * @param {Uint8Array} b 
+ * @param {Uint8Array} a
+ * @param {Uint8Array} b
  * @returns {Uint8Array}
  * @throws {ValidationError}
  */
@@ -93414,7 +93414,7 @@ function polymod(data) {
 /**
  * Verify that the payload has not been corrupted by checking that the
  * checksum is valid.
- * 
+ *
  * @private
  * @param {string} prefix Network prefix. E.g.: 'bitcoincash'.
  * @param {Uint8Array} payload Array of 5-bit integers containing the address' payload.
@@ -99135,13 +99135,13 @@ var sjcl = {
 
   /** @namespace Key exchange functions.  Right now only SRP is implemented. */
   keyexchange: {},
-  
+
   /** @namespace Block cipher modes of operation. */
   mode: {},
 
   /** @namespace Miscellaneous.  HMAC and PBKDF2. */
   misc: {},
-  
+
   /**
    * @namespace Bit array encoders and decoders.
    *
@@ -99152,7 +99152,7 @@ var sjcl = {
    * the method names are "fromBits" and "toBits".
    */
   codec: {},
-  
+
   /** @namespace Exceptions. */
   exception: {
     /** @constructor Ciphertext is corrupt. */
@@ -99160,13 +99160,13 @@ var sjcl = {
       this.toString = function() { return "CORRUPT: "+this.message; };
       this.message = message;
     },
-    
+
     /** @constructor Invalid parameter. */
     invalid: function(message) {
       this.toString = function() { return "INVALID: "+this.message; };
       this.message = message;
     },
-    
+
     /** @constructor Bug or missing feature in SJCL. @constructor */
     bug: function(message) {
       this.toString = function() { return "BUG: "+this.message; };
@@ -99268,7 +99268,7 @@ sjcl.bitArray = {
     if (a1.length === 0 || a2.length === 0) {
       return a1.concat(a2);
     }
-    
+
     var last = a1[a1.length-1], shift = sjcl.bitArray.getPartial(last);
     if (shift === 32) {
       return a1.concat(a2);
@@ -99354,7 +99354,7 @@ sjcl.bitArray = {
   _shiftRight: function (a, shift, carry, out) {
     var i, last2=0, shift2;
     if (out === undefined) { out = []; }
-    
+
     for (; shift >= 32; shift -= 32) {
       out.push(carry);
       carry = 0;
@@ -99362,7 +99362,7 @@ sjcl.bitArray = {
     if (shift === 0) {
       return out.concat(a);
     }
-    
+
     for (i=0; i<a.length; i++) {
       out.push(carry | a[i]>>>shift);
       carry = a[i] << (32-shift);
@@ -99372,7 +99372,7 @@ sjcl.bitArray = {
     out.push(sjcl.bitArray.partial(shift+shift2 & 31, (shift + shift2 > 32) ? carry : out.pop(),1));
     return out;
   },
-  
+
   /** xor a block of 4 words together.
    * @private
    */
@@ -99404,7 +99404,7 @@ sjcl.bitArray = {
  * @author Mike Hamburg
  * @author Dan Boneh
  */
- 
+
 /** @namespace UTF-8 strings */
 sjcl.codec.utf8String = {
   /** Convert from a bitArray to a UTF-8 string. */
@@ -99419,7 +99419,7 @@ sjcl.codec.utf8String = {
     }
     return decodeURIComponent(escape(out));
   },
-  
+
   /** Convert from a UTF-8 string to a bitArray. */
   toBits: function (str) {
     str = unescape(encodeURIComponent(str));
@@ -99521,7 +99521,7 @@ sjcl.hash.sha512.prototype = {
    * @constant
    */
   blockSize: 1024,
-   
+
   /**
    * Reset the hash state.
    * @return this
@@ -99532,7 +99532,7 @@ sjcl.hash.sha512.prototype = {
     this._length = 0;
     return this;
   },
-  
+
   /**
    * Input several words to the hash.
    * @param {bitArray|String} data the data to hash.
@@ -99550,7 +99550,7 @@ sjcl.hash.sha512.prototype = {
     }
     return this;
   },
-  
+
   /**
    * Complete hashing and output the hash value.
    * @return {bitArray} The hash value, an array of 16 big-endian words.
@@ -99845,12 +99845,12 @@ sjcl.misc.hmac = function (key, Hash) {
   if (key.length > bs) {
     key = Hash.hash(key);
   }
-  
+
   for (i=0; i<bs; i++) {
     exKey[0][i] = key[i]^0x36363636;
     exKey[1][i] = key[i]^0x5C5C5C5C;
   }
-  
+
   this._baseHash[0].update(exKey[0]);
   this._baseHash[1].update(exKey[1]);
   this._resultHash = new Hash(this._baseHash[0]);
@@ -99913,34 +99913,34 @@ sjcl.misc.hmac.prototype.digest = function () {
  */
 sjcl.misc.pbkdf2 = function (password, salt, count, length, Prff) {
   count = count || 1000;
-  
+
   if (length < 0 || count < 0) {
     throw sjcl.exception.invalid("invalid params to pbkdf2");
   }
-  
+
   if (typeof password === "string") {
     password = sjcl.codec.utf8String.toBits(password);
   }
-  
+
   if (typeof salt === "string") {
     salt = sjcl.codec.utf8String.toBits(salt);
   }
-  
+
   Prff = Prff || sjcl.misc.hmac;
-  
+
   var prf = new Prff(password),
       u, ui, i, j, k, out = [], b = sjcl.bitArray;
 
   for (k = 1; 32 * out.length < (length || 1); k++) {
     u = ui = prf.encrypt(b.concat(salt,[k]));
-    
+
     for (i=1; i<count; i++) {
       ui = prf.encrypt(ui);
       for (j=0; j<ui.length; j++) {
         u[j] ^= ui[j];
       }
     }
-    
+
     out = out.concat(u);
   }
 
@@ -99999,7 +99999,7 @@ sjcl.hash.sha256.prototype = {
    * @constant
    */
   blockSize: 512,
-   
+
   /**
    * Reset the hash state.
    * @return this
@@ -100010,7 +100010,7 @@ sjcl.hash.sha256.prototype = {
     this._length = 0;
     return this;
   },
-  
+
   /**
    * Input several words to the hash.
    * @param {bitArray|String} data the data to hash.
@@ -100028,7 +100028,7 @@ sjcl.hash.sha256.prototype = {
     }
     return this;
   },
-  
+
   /**
    * Complete hashing and output the hash value.
    * @return {bitArray} The hash value, an array of 8 big-endian words.
@@ -100038,12 +100038,12 @@ sjcl.hash.sha256.prototype = {
 
     // Round out and push the buffer
     b = sjcl.bitArray.concat(b, [sjcl.bitArray.partial(1,1)]);
-    
+
     // Round out the buffer to a multiple of 16 words, less the 2 length words.
     for (i = b.length + 2; i & 15; i++) {
       b.push(0);
     }
-    
+
     // append the length
     b.push(Math.floor(this._length / 0x100000000));
     b.push(this._length | 0);
@@ -100064,7 +100064,7 @@ sjcl.hash.sha256.prototype = {
   /*
   _init:[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19],
   */
-  
+
   /**
    * The SHA-256 hash key, to be precomputed.
    * @private
@@ -100099,7 +100099,7 @@ sjcl.hash.sha256.prototype = {
           continue outer;
         }
       }
-      
+
       if (i<8) {
         this._init[i] = frac(Math.pow(prime, 1/2));
       }
@@ -100107,13 +100107,13 @@ sjcl.hash.sha256.prototype = {
       i++;
     }
   },
-  
+
   /**
    * Perform one cycle of SHA-256.
    * @param {bitArray} words one block of words.
    * @private
    */
-  _block:function (words) {  
+  _block:function (words) {
     var i, tmp, a, b,
       w = words.slice(0),
       h = this._h,
@@ -100141,13 +100141,13 @@ sjcl.hash.sha256.prototype = {
       } else {
         a   = w[(i+1 ) & 15];
         b   = w[(i+14) & 15];
-        tmp = w[i&15] = ((a>>>7  ^ a>>>18 ^ a>>>3  ^ a<<25 ^ a<<14) + 
+        tmp = w[i&15] = ((a>>>7  ^ a>>>18 ^ a>>>3  ^ a<<25 ^ a<<14) +
                          (b>>>17 ^ b>>>19 ^ b>>>10 ^ b<<15 ^ b<<13) +
                          w[i&15] + w[(i+9) & 15]) | 0;
       }
-      
+
       tmp = (tmp + h7 + (h4>>>6 ^ h4>>>11 ^ h4>>>25 ^ h4<<26 ^ h4<<21 ^ h4<<7) +  (h6 ^ h4&(h5^h6)) + k[i]); // | 0;
-      
+
       // shift register
       h7 = h6; h6 = h5; h5 = h4;
       h4 = h3 + tmp | 0;
@@ -105905,7 +105905,7 @@ window.Entropy = new (function() {
     var showBalance = true;
     var showPrivKey = true;
     var showQr = false;
-    var litecoinUseLtub = true;
+    var sumcoinUseLtub = true;
 
     var entropyChangeTimeoutEvent = null;
     var phraseChangeTimeoutEvent = null;
@@ -105939,8 +105939,8 @@ window.Entropy = new (function() {
     DOM.generate = $(".generate");
     DOM.seed = $(".seed");
     DOM.rootKey = $(".root-key");
-    DOM.litecoinLtubContainer = $(".sumcoin-ltub-container");
-    DOM.litecoinUseLtub = $(".sumcoin-use-ltub");
+    DOM.sumcoinLtubContainer = $(".sumcoin-ltub-container");
+    DOM.sumcoinUseLtub = $(".sumcoin-use-ltub");
     DOM.extendedPrivKey = $(".extended-priv-key");
     DOM.extendedPubKey = $(".extended-pub-key");
     DOM.bip32tab = $("#bip32-tab");
@@ -106018,7 +106018,7 @@ window.Entropy = new (function() {
         DOM.generate.on("click", generateClicked);
         DOM.more.on("click", showMore);
         DOM.rootKey.on("input", delayedRootKeyChanged);
-        DOM.litecoinUseLtub.on("change", litecoinUseLtubChanged);
+        DOM.sumcoinUseLtub.on("change", sumcoinUseLtubChanged);
         DOM.bip32path.on("input", calcForDerivationPath);
         DOM.bip44account.on("input", calcForDerivationPath);
         DOM.bip44change.on("input", calcForDerivationPath);
@@ -106062,7 +106062,7 @@ window.Entropy = new (function() {
     function networkChanged(e) {
         clearDerivedKeys();
         clearAddressesList();
-        DOM.litecoinLtubContainer.addClass("hidden");
+        DOM.sumcoinLtubContainer.addClass("hidden");
         DOM.bitcoinCashAddressTypeContainer.addClass("hidden");
         var networkIndex = e.target.value;
         var network = networks[networkIndex];
@@ -106241,13 +106241,13 @@ window.Entropy = new (function() {
         calcForDerivationPath();
     }
 
-    function litecoinUseLtubChanged() {
-        litecoinUseLtub = DOM.litecoinUseLtub.prop("checked");
-        if (litecoinUseLtub) {
+    function sumcoinUseLtubChanged() {
+        sumcoinUseLtub = DOM.sumcoinUseLtub.prop("checked");
+        if (sumcoinUseLtub) {
             network = bitcoinjs.bitcoin.networks.sumcoin;
         }
         else {
-            network = bitcoinjs.bitcoin.networks.litecoinXprv;
+            network = bitcoinjs.bitcoin.networks.sumcoinXprv;
         }
         phraseChanged();
     }
@@ -106739,7 +106739,7 @@ window.Entropy = new (function() {
                         address = bitcoinjs.bitcoin.address.fromOutputScript(scriptpubkey, network)
                     }
                 }
-                // query Insight Lite for balance
+                // query Insight Sum Explorer for balance - TODO - Make insight
                 // convert from sats to whole sum + append SUM
                 var baseURL = "https://insight.litecore.io/api/addr/" + address + "/balance";
                 var balance;
@@ -107413,7 +107413,7 @@ window.Entropy = new (function() {
             onSelect: function() {
                 network = bitcoinjs.bitcoin.networks.sumcoin;
                 setHdCoin(2);
-                DOM.litecoinLtubContainer.removeClass("hidden");
+                DOM.sumcoinLtubContainer.removeClass("hidden");
             },
         },
     ]
