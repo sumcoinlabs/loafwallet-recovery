@@ -6876,13 +6876,15 @@ button.close {
     <body>
         <div class="container">
 
-            <h1 class="text-center">SliceWallet Recovery</h1>
-            <p class="version">v0.1.0</p>
+            <h1 class="text-center">SliceWallet Recovery Tool</h1>
+            <p class="version">v0.1.1</p>
             <hr>
             <div class="row">
                 <div class="col-md-12">
                     <form class="form-horizontal" role="form">
 
+                      <h4 class="text-center"><b>Usage:</b> Quickly convert 12 word Mnemonic seed keys into Public & Private key pairs allowing you to import to Sumcoin Core Wallet</h4>
+                      <br>
                         <div class="form-group">
                             <label for="phrase" class="col-sm-2 control-label">Enter Paper Key</label>
                             <div class="col-sm-10">
@@ -36307,12 +36309,12 @@ module.exports = {
   sumcoin: {
     messagePrefix: '\x19Sumcoin Signed Message:\n',
     bip32: {
-      public: 0x019da462,
-      private: 0x019d9cfe
+      public: 0x0488b41c,
+      private: 0x0488abe6
     },
-    pubKeyHash: 0x30,
-    scriptHash: 0x32,
-    wif: 0xb0
+    pubKeyHash: 0x3F,
+    scriptHash: 0xC8,
+    wif: 0xbf
   }
 }
 
