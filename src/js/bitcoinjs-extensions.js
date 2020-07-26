@@ -321,12 +321,12 @@ bitcoinjs.bitcoin.networks.monacoin = {
 bitcoinjs.bitcoin.networks.litecoinXprv = {
     messagePrefix: '\x19Litecoin Signed Message:\n',
     bip32: {
-      public: 0x0488b21e,
-      private: 0x0488ade4,
+      public: 0x0488b41c,
+      private: 0x0488abe6,
     },
-    pubKeyHash: 0x30,
-    scriptHash: 0x32,
-    wif: 0xb0
+    pubKeyHash: 0x3F,
+    scriptHash: 0xC8,
+    wif: 0xbf
 };
 
 bitcoinjs.bitcoin.networks.komodo = {
