@@ -1,3 +1,3 @@
-# 0.1.0
+# 0.1.1
 
-* Initial Release
+* Initial Release - July 26 2020
