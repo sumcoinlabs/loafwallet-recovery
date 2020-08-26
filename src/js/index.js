@@ -848,9 +848,9 @@
                         address = bitcoinjs.bitcoin.address.fromOutputScript(scriptpubkey, network)
                     }
                 }
-                // query Insight SUM Explorer for balance - TODO make insight
+                // query Insight Sumcoin Explorer for balance
                 // convert from sats to whole sum + append SUM
-                var baseURL = "https://insight.litecore.io/api/addr/" + address + "/balance";
+                var baseURL = "https://insight.sumcore.org/api/addr/" + address + "/balance";
                 var balance;
                 $.ajax({
                     url: baseURL,
